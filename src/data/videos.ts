@@ -1,0 +1,111 @@
+import { Video } from "@/types/video";
+
+export const videos: Video[] = [
+  {
+    id: 1,
+    src: "https://cdn.pixabay.com/video/2022/07/24/125314-733046618_tiny.mp4",
+    title:
+      "Unlock the power of natural ingredients for healthier hair! 🌿 #NaturalHairCare",
+    channel: "EcoBeauty",
+    channelAvatar: "/placeholder.svg?height=40&width=40",
+    likes: "145K",
+    comments: "5,678",
+    shares: "2.8K",
+    views: "10.2K views",
+  },
+  {
+    id: 2,
+    src: "https://pixabay.com/videos/download/video-154787_tiny.mp4",
+    title:
+      "Transform your hair routine with these amazing tips! #haircare #beauty",
+    channel: "Jane HairCare",
+    channelAvatar: "/placeholder.svg?height=40&width=40",
+    likes: "89K",
+    comments: "3,211",
+    shares: "2.1K",
+    views: "8.5K views",
+  },
+  {
+    id: 3,
+    src: "https://cdn.pixabay.com/video/2022/09/19/131824-751934493_tiny.mp4",
+    title:
+      "Discover the secret to luscious locks! Our new product line is here to revolutionize your hair game.",
+    channel: "Jane HairCare",
+    channelAvatar: "/placeholder.svg?height=40&width=40",
+    likes: "203K",
+    comments: "8,742",
+    shares: "5.1K",
+    views: "18.3K views",
+  },
+  {
+    id: 4,
+    src: "https://pixabay.com/videos/download/video-133507_tiny.mp4",
+    title:
+      "Unlock the power of natural ingredients for healthier hair! 🌿 #NaturalHairCare",
+    channel: "EcoBeauty",
+    channelAvatar: "/placeholder.svg?height=40&width=40",
+    likes: "145K",
+    comments: "5,678",
+    shares: "2.8K",
+    views: "10.2K views",
+  },
+  {
+    id: 5,
+    src: "https://pixabay.com/videos/download/video-133925_tiny.mp4",
+    title: "Master the art of the perfect blowout at home! 💨 #BlowoutTutorial",
+    channel: "StyleMaster",
+    channelAvatar: "/placeholder.svg?height=40&width=40",
+    likes: "118K",
+    comments: "4,321",
+    shares: "1.9K",
+    views: "9.7K views",
+  },
+  {
+    id: 6,
+    src: "https://pixabay.com/videos/download/video-155018_tiny.mp4",
+    title:
+      "Color-treated hair? Here's how to keep it vibrant and healthy! 🌈 #HairColorCare",
+    channel: "ColorPro",
+    channelAvatar: "/placeholder.svg?height=40&width=40",
+    likes: "167K",
+    comments: "7,123",
+    shares: "3.6K",
+    views: "14.5K views",
+  },
+  {
+    id: 7,
+    src: "https://pixabay.com/videos/download/video-215757_tiny.mp4",
+    title:
+      "Say goodbye to frizz with these game-changing techniques! ✨ #FrizzControl",
+    channel: "SmoothLocks",
+    channelAvatar: "/placeholder.svg?height=40&width=40",
+    likes: "192K",
+    comments: "8,901",
+    shares: "4.7K",
+    views: "16.8K views",
+  },
+  {
+    id: 8,
+    src: "https://cdn.pixabay.com/video/2022/06/23/121903-724720200_tiny.mp4",
+    title:
+      "Revive your curls with our moisture-boosting routine! 💦 #CurlyCare",
+    channel: "CurlQueen",
+    channelAvatar: "/placeholder.svg?height=40&width=40",
+    likes: "210K",
+    comments: "9,876",
+    shares: "5.3K",
+    views: "19.1K views",
+  },
+  {
+    id: 9,
+    src: "https://cdn.pixabay.com/video/2023/07/13/171391-845439656_medium.mp4",
+    title:
+      "Revive your curls with our moisture-boosting routine! 💦 #CurlyCare",
+    channel: "CurlQueen",
+    channelAvatar: "/placeholder.svg?height=40&width=40",
+    likes: "210K",
+    comments: "9,876",
+    shares: "5.3K",
+    views: "19.1K views",
+  },
+];
