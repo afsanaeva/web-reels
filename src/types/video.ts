@@ -6,6 +6,7 @@ export type Video = {
   channelAvatar: string;
   likes: string;
   comments: string;
+  caption: string;
   shares: string;
   views: string;
 }; 

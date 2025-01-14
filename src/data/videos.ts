@@ -11,7 +11,8 @@ export const videos: Video[] = [
     likes: "145K",
     comments: "5,678",
     shares: "2.8K",
-    views: "10.2K views",
+    views: "10.2K ",
+    caption: "Unlock the power of natural ingredients for healthier hair! 🌿 #NaturalHairCare",
   },
   {
     id: 2,
@@ -23,7 +24,8 @@ export const videos: Video[] = [
     likes: "89K",
     comments: "3,211",
     shares: "2.1K",
-    views: "8.5K views",
+    views: "8.5K ",
+    caption: "Transform",
   },
   {
     id: 3,
@@ -35,7 +37,8 @@ export const videos: Video[] = [
     likes: "203K",
     comments: "8,742",
     shares: "5.1K",
-    views: "18.3K views",
+    views: "18.3K ",
+    caption: "Discover the secret to luscious locks! Our new product line is here to revolutionize your hair game."
   },
   {
     id: 4,
@@ -47,7 +50,8 @@ export const videos: Video[] = [
     likes: "145K",
     comments: "5,678",
     shares: "2.8K",
-    views: "10.2K views",
+    views: "10.2K ",
+    caption: "Unlock the power of natural ingredients for healthier hair! 🌿 #NaturalHairCare",
   },
   {
     id: 5,
@@ -58,7 +62,8 @@ export const videos: Video[] = [
     likes: "118K",
     comments: "4,321",
     shares: "1.9K",
-    views: "9.7K views",
+    views: "9.7K ",
+    caption: "Master the art of the perfect blowout at home! 💨 #BlowoutTutorial",
   },
   {
     id: 6,
@@ -70,7 +75,8 @@ export const videos: Video[] = [
     likes: "167K",
     comments: "7,123",
     shares: "3.6K",
-    views: "14.5K views",
+    views: "14.5K ",
+    caption: "Master the art of the perfect blowout at home! 💨 #BlowoutTutorial",
   },
   {
     id: 7,
@@ -82,7 +88,8 @@ export const videos: Video[] = [
     likes: "192K",
     comments: "8,901",
     shares: "4.7K",
-    views: "16.8K views",
+    views: "16.8K ",
+    caption: "Master the art of the perfect blowout at home! 💨 #BlowoutTutorial",
   },
   {
     id: 8,
@@ -94,7 +101,8 @@ export const videos: Video[] = [
     likes: "210K",
     comments: "9,876",
     shares: "5.3K",
-    views: "19.1K views",
+    views: "19.1K ",
+    caption: "Master the art of the perfect blowout at home! 💨 #BlowoutTutorial",
   },
   {
     id: 9,
@@ -106,6 +114,7 @@ export const videos: Video[] = [
     likes: "210K",
     comments: "9,876",
     shares: "5.3K",
-    views: "19.1K views",
+    views: "19.1K ",
+    caption: "Master the art of the perfect blowout at home! 💨 #BlowoutTutorial",
   },
 ];
