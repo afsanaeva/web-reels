@@ -62,3 +62,16 @@ export const RESET_PASSWORD = gql`
     }
   }
 `;
+
+export const LOGIN_TOTP = gql`
+  mutation LoginTOTP($externalId: String!, $totp: String!) {
+    loginTOTP(externalId: $externalId, totp: $totp) {
+      accessToken
+      refreshToken
+      token
+      user {
+        _id
+      }
+    }
+  }
+`;

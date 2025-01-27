@@ -2,9 +2,8 @@
 
 import { createContext, useContext, useState, useRef, ReactNode } from "react";
 import { CarouselApi } from "@/components/ui/carousel";
-import { GET_SHORT, GET_SHORTS } from "@/graphql/queries/shortsQueries";
-import { ApolloError, useLazyQuery, useQuery } from "@apollo/client";
-import { useParams } from "next/navigation";
+import { videos } from "@/data/videos"; // Import the dummy data array
+import { Video } from "@/types/video";
 
 interface VideoPlayerContextType {
   api: CarouselApi | undefined;
@@ -26,10 +25,8 @@ interface VideoPlayerContextType {
   togglePlay: (e: React.MouseEvent<any>) => void;
   navigateVideo: (direction: "next" | "prev") => void;
   handleVideoLoad: (video: HTMLVideoElement, index: number) => void;
-  shorts: any[];
+  shorts: Video[]; // Use the Video type for shorts
   loading: boolean;
-  error: ApolloError | undefined;
-  fetchMore: (variables: any) => void;
   showPoll: boolean;
   setShowPoll: (show: boolean) => void;
   isVideoMounted: boolean;
@@ -49,37 +46,9 @@ interface VideoPlayerContextType {
 const VideoPlayerContext = createContext<VideoPlayerContextType | undefined>(
   undefined
 );
-const isValidObjectId = (id: string) => /^[0-9a-fA-F]{24}$/.test(id);
 
 export function VideoPlayerProvider({ children }: { children: ReactNode }) {
-  const params = useParams();
-  const { data, loading, error, fetchMore } = useQuery(GET_SHORTS, {
-    variables: {
-      limit: 5,
-      offset: 0,
-      shortId: isValidObjectId(params.id as string) ? params.id : null,
-    },
-    fetchPolicy: "network-only",
-  });
-
-  const { data: shortData } = useQuery(GET_SHORT, {
-    variables: {
-      shortId: isValidObjectId(params.id as string) ? params.id : null,
-    },
-  });
-
-  const filterShorts = (shorts: any[]) => {
-    return shorts.filter((s: any) => {
-      if (s?.video?.converStatus === "PROGRESSING") {
-        return false;
-      }
-      return s._id !== shortData?.short?._id;
-    });
-  };
-  const combinedShorts =
-    shortData?.short && shortData?.short.video.converStatus !== "PROGRESSING"
-      ? [shortData?.short, ...filterShorts(data?.shorts || [])]
-      : filterShorts(data?.shorts || []);
+  const combinedShorts = videos; // Use the dummy data directly
 
   const [api, setApi] = useState<CarouselApi>();
   const [isVideoMounted, setIsVideoMounted] = useState(false);
@@ -90,7 +59,7 @@ export function VideoPlayerProvider({ children }: { children: ReactNode }) {
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const abortControllers = useRef<(AbortController | null)[]>([]);
   const [loadingStates, setLoadingStates] = useState<boolean[]>(
-    new Array(data?.shorts?.length || 0).fill(false)
+    new Array(combinedShorts?.length || 0).fill(false)
   );
   const [showPoll, setShowPoll] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
@@ -99,6 +68,7 @@ export function VideoPlayerProvider({ children }: { children: ReactNode }) {
   const [isDragging, setIsDragging] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
   const [isFullScreen, setIsFullScreen] = useState(false);
+
   const toggleMute = () => {
     const video = videoRefs.current[currentIndex];
     if (video) {
@@ -132,7 +102,6 @@ export function VideoPlayerProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  // Modify handleVideoLoad to include preloading
   const handleVideoLoad = async (video: HTMLVideoElement, index: number) => {
     try {
       const controller = new AbortController();
@@ -144,7 +113,6 @@ export function VideoPlayerProvider({ children }: { children: ReactNode }) {
         return newStates;
       });
 
-      // Add event listeners for play/pause states
       video.addEventListener("play", () => {
         setIsPlaying(true);
         setAutoplayFailed(false);
@@ -196,9 +164,7 @@ export function VideoPlayerProvider({ children }: { children: ReactNode }) {
         navigateVideo,
         handleVideoLoad,
         shorts: combinedShorts,
-        loading,
-        error,
-        fetchMore,
+        loading: false, // Since we're using static data
         showPoll,
         setShowPoll,
         isVideoMounted,

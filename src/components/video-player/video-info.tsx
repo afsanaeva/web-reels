@@ -1,5 +1,4 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
 import { Video } from "@/types/video";
 import { Channel } from "@/types/channel";
 // import { useVideoPlayer } from "./VideoPlayerContext";

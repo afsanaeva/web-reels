@@ -1,4 +1,6 @@
 export type Video = {
+  Video: string;
+  nocodePlayer: unknown;
   id: number;
   src: string;
   title: string;
@@ -9,4 +11,5 @@ export type Video = {
   caption: string;
   shares: string;
   views: string;
+  isLiked: boolean,
 }; 

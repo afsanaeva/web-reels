@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import ModalCancelConfirm from "@/components/ModalCancelConfirm";
 
 interface CommentActionsDropdownProps {
@@ -49,7 +48,7 @@ export default function CommentActionsDropdown({
       <Button
         variant="ghost"
         size="icon"
-        className="rounded-full text-white hover:bg-[#F0F7FE]"
+        className="rounded-full text-black hover:bg-[#F0F7FE]"
         onClick={toggleDropdown}
         aria-expanded={isOpen}
         aria-haspopup="true"
@@ -110,18 +109,17 @@ export default function CommentActionsDropdown({
 
       {/* Confirmation Modal */}
       {isModalOpen && (
-       <ModalCancelConfirm
-       isOpen={isModalOpen}
-       toggleDialog={toggleModal}
-       handleDialogConfirm={() => {
-         onDelete(id); // Confirm delete action
-         toggleModal(); // Close modal
-       }}
-       title={"Delete Comment?"} // Primary title
-       subtitle={"Delete your comment permanently?"} // Secondary subtitle
-       confirmButtonText="Delete"
-     />
-     
+        <ModalCancelConfirm
+          isOpen={isModalOpen}
+          toggleDialog={toggleModal}
+          handleDialogConfirm={() => {
+            onDelete(id); // Confirm delete action
+            toggleModal(); // Close modal
+          }}
+          title={"Delete Comment?"} // Primary title
+          subtitle={"Delete your comment permanently?"} // Secondary subtitle
+          confirmButtonText="Delete"
+        />
       )}
     </div>
   );
