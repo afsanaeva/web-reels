@@ -136,7 +136,25 @@ export default function CommentList({
       unlikeCount: 0,
     };
 
-    setComments((prevComments) => [newComment, ...prevComments]);
+    setComments((prevComments) => [
+      {
+      ...newComment,
+      short: {
+        ...newComment.short,
+        commentCount: 0,
+        deleted: false,
+        caption: "",
+        allowComment: true,
+        status: "active",
+        reportCount: 0,
+      },
+      user: {
+        ...newComment.user,
+        username: "new_user",
+      },
+      },
+      ...prevComments,
+    ]);
     toast({ description: "Comment added successfully.", variant: "success" });
     setNewCommentText("");
   };
@@ -221,10 +239,11 @@ export default function CommentList({
               onEdit={() => {
                 setEditCommentId(comment.id);
                 setEditCommentText(comment.text);
-              }}
+              } }
               onDelete={() => handleDeleteComment(comment.id)}
-              id={comment.id}
-            />
+              id={comment.id.toString()} onToggle={function (): void {
+                throw new Error("Function not implemented.");
+              } }            />
           </div>
         ))}
       </ScrollArea>

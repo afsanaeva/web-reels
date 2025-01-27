@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { videos } from "@/types/video";
+import { Video } from "@/types/video";
+import { videos } from "@/data/videos";
 
 interface InteractionButtonsProps {
   video: Video;

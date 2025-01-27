@@ -10,6 +10,7 @@ import {
 import { VideoInfo } from "./video-info";
 import { InteractionButtons } from "./interaction-buttons";
 import { videos } from "@/data/videos";
+import { channels } from "@/data/channel";
 import Loader from "./Loader";
 import TogglePlayPause from "./TogglePlayPause";
 import Progressbar from "./Progressbar";
@@ -60,6 +61,7 @@ export function VerticalVideoPlayer() {
       }
     });
   };
+  const Channels = channels;
 
   // Modify handleVideoLoad to include preloading
   const handleVideoLoad = async (video: HTMLVideoElement, index: number) => {
@@ -282,7 +284,7 @@ export function VerticalVideoPlayer() {
                     />
                   )}
 
-                  <VideoInfo video={video} />
+                  <VideoInfo video={video} channel={Channels[index]}  />
 
                   {/* Progress Bar */}
                   <Progressbar
@@ -291,7 +293,11 @@ export function VerticalVideoPlayer() {
                     progress={progress}
                   />
                 </div>
-                <InteractionButtons video={video} />
+                <InteractionButtons video={video} onCommentClick={function (): void {
+                  throw new Error("Function not implemented.");
+                } } onExploreClick={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
               </div>
             </CarouselItem>
           ))}

@@ -68,14 +68,11 @@ const ChannelDetailsShorts: React.FC<ChannelDetailsShortsProps> = ({
         <div className="flex flex-col items-center mt-4">
           <h1 className="text-[#000E3C] text-2xl font-bold mb-2">{channel.name}</h1>
           <FollowChannel
-            onFollow={() => {}}
+            onFollow={() => { } }
             channelId={channel?._id}
-            className={
-              channel?.isFollowed
-                ? "bg-[#005AFF] text-white"
-                : "bg-[#005AFF] text-white"
-            }
-          />
+            className={channel?.isFollowed
+              ? "bg-[#005AFF] text-white"
+              : "bg-[#005AFF] text-white"} channelData={[]}          />
           <p className="text-[#4A4A4A] text-sm mt-2">{channel.description}</p>
 
           <div className="flex gap-4 justify-center items-center mt-4">

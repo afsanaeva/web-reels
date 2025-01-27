@@ -233,7 +233,7 @@ export default function VideoPlayerScreen() {
               isVideoMounted={isVideoMounted}
               setIsVideoMounted={setIsVideoMounted}
               loop={false}
-              videoUrl={short?.Video}
+              videoUrl={short?.src}
             />
 
             {/* Poll */}
