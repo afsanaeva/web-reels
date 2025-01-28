@@ -22,7 +22,7 @@ export function InteractionButtons({
 
   const handleLikeDislike = () => {
     setIsLiked(!isLiked);
-    setLikeCount(isLiked ? likeCount - 1 : likeCount + 1);
+    // setLikeCount(isLiked ? likeCount - 1 : likeCount + 1);
   };
 
   return (

@@ -29,7 +29,7 @@ export const videos: Video[] = [
     caption: "Transform",
     Video:"https://pixabay.com/videos/download/video-154787_tiny.mp4",
     nocodePlayer: undefined,
-    isLiked: true,
+    isLiked: false,
   },
   {
     id: 3,

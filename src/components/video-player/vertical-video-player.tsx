@@ -15,6 +15,8 @@ import Loader from "./Loader";
 import TogglePlayPause from "./TogglePlayPause";
 import Progressbar from "./Progressbar";
 import NavigationButtons from "./NavigationButtons";
+import CommentList from "./comments/CommentList";
+import { Explore } from "./explore/Explore";
 
 export function VerticalVideoPlayer() {
   const [api, setApi] = useState<CarouselApi>();
@@ -247,6 +249,13 @@ export function VerticalVideoPlayer() {
     };
   }, []);
 
+    // toggle comments
+    const [showComments, setShowComments] = useState(false);
+    const [showExplore, setShowExplore] = useState(false);
+  
+    const toggleComments = () => setShowComments(!showComments);
+    const toggleExplore = () => setShowExplore(!showExplore);
+
   return (
     <div className="relative w-full h-[100vh] bg-black flex items-center justify-center overflow-hidden">
       <Carousel
@@ -284,7 +293,7 @@ export function VerticalVideoPlayer() {
                     />
                   )}
 
-                  <VideoInfo video={video} channel={Channels[index]}  />
+                  <VideoInfo video={video} channel={Channels[index]} />
 
                   {/* Progress Bar */}
                   <Progressbar
@@ -293,11 +302,29 @@ export function VerticalVideoPlayer() {
                     progress={progress}
                   />
                 </div>
-                <InteractionButtons video={video} onCommentClick={function (): void {
-                  throw new Error("Function not implemented.");
-                } } onExploreClick={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
+                {!showComments && !showExplore && (
+                  <InteractionButtons
+                    video={video}
+                    onCommentClick={toggleComments}
+                    onExploreClick={toggleExplore}
+                  />
+                )}
+
+                {/* Comment List Section */}
+                {showComments && (
+                  <div className="bg-white aspect-[600/1040] relative rounded-r-[32px] overflow-hidden h-full w-full flex items-center">
+                    <CommentList
+                      shortId={video.id.toString()}
+                      toggleComments={toggleComments}
+                    />
+                  </div>
+                )}
+
+                {showExplore && (
+                  <div className="bg-white aspect-[600/1040] relative rounded-r-[32px] overflow-hidden h-full w-full flex items-center">
+                    <Explore toggleExplore={toggleExplore} />
+                  </div>
+                )}
               </div>
             </CarouselItem>
           ))}

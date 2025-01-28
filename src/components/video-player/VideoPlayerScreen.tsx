@@ -283,7 +283,7 @@ export default function VideoPlayerScreen() {
         </Carousel>
         <NavigationButtons
           navigateVideo={navigateVideo}
-          isLoading={loadingStates[currentIndex] || false}
+          // isLoading={loadingStates[currentIndex] || false}
         />
       </div>
     </div>
