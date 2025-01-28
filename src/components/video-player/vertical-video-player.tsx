@@ -17,6 +17,7 @@ import Progressbar from "./Progressbar";
 import NavigationButtons from "./NavigationButtons";
 import CommentList from "./comments/CommentList";
 import { Explore } from "./explore/Explore";
+import BlurryBackground from "./BlurryBackground";
 
 export function VerticalVideoPlayer() {
   const [api, setApi] = useState<CarouselApi>();
@@ -258,6 +259,7 @@ export function VerticalVideoPlayer() {
 
   return (
     <div className="relative w-full h-[100vh] bg-black flex items-center justify-center overflow-hidden">
+        <BlurryBackground videoRef={videoRefs?.current?.[currentIndex]} />
       <Carousel
         className="overflow-visible"
         opts={{ align: "start", loop: true }}
